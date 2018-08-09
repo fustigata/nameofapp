@@ -1,3 +1,33 @@
 // Place all the styles related to the simple_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Typography*/
+h1,
+h2{
+  font-family: Futura, Helvetica, Arial, sans-serif;
+}
+
+h1{
+  text-align: center;
+  text-decoration: underline;
+}
+.nav a:hover{
+  color: #ff0;
+  text-decoration: none;
+}
+//why do i need both of these in order for it to work?
+.nav-item{
+  display: inline-block;
+}
+.navbar-right{
+  display: inline-block;
+}
+
+.nav li a{
+  transition: color 600ms;
+  -webkit-transition: 600ms;
+  padding-right: 30px;
+  padding-left: 30px;
+  background-color: pink;
+}
