@@ -1,5 +1,6 @@
 <div class="col-sm">
   <h1><%= link_to product.name, product %></h1>
+  <img><%= image_tag(product.image_url) %></img>
   <p><%= product.description %></p>
   <strong>$ <%= product.price %></strong>
 </div><!-- /col -->
