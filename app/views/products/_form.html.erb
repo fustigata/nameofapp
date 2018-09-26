@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, class: "control-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, class: "control-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div class="form-group">
+    <%= form.label :image_url, class: "control-label" %>
+    <%= form.text_field :image_url, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %><br>
-    <%= form.text_field :color %>
+  <div class="form-group">
+    <%= form.label :color, class: "control-label" %>
+    <%= form.text_field :color, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
+  <div class="form-group">
+    <%= form.label :price, class: "control-label" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div class="actions">
+  <div class="btn-default">
     <%= form.submit %>
   </div>
 <% end %>
