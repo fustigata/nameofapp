@@ -22,17 +22,31 @@
           <a href="#">Downtown Custom Printwear</a>
         </div> <!--end Sam Sadler -->
         </div> <!--end navbar-header -->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <div>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active nav-item"><a href="/simple_pages/index">Home</a></li>
-            <li class="nav-item"><a href="/simple_pages/about">About</a></li>
-            <li class="nav-item"><a href="/simple_pages/contact">Contact</a></li>
-            <li class="nav-item"><a href="/products">Products</a></li>
+          <ul class="nav navbar-nav navbar-right navbar-collapse">
             <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
               <%= form.text_field :q, id: 'q', value: params[:q] %>
               <%= form.submit 'Search' %>
             <% end %>
+            <li class="active nav-item"><a href="/simple_pages/index">Home</a></li>
+            <li class="nav-item"><a href="/simple_pages/about">About</a></li>
+            <li class="nav-item"><a href="/simple_pages/contact">Contact</a></li>
+            <li class="nav-item"><a href="/products">Products</a></li>
           </ul>
+          <!-- <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+            </li>
+            <% end %>
+            </li>
+          </ul> -->
         </div> <!-- nav -->
       </div> <!-- end nav container-->
   </nav> <!-- end navbar-->
