@@ -21,42 +21,41 @@
     <% if alert %>
       <p id="alert" class="alert alert-secondary"><%= alert %></p>
     <% end %>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-        <div class="projectName">
-          <a href="#">Downtown Custom Printwear</a>
-        </div> <!--end Sam Sadler -->
-        </div> <!--end navbar-header -->
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <div>
-          <ul class="nav navbar-nav navbar-right navbar-collapse">
-            <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
-              <%= form.text_field :q, id: 'q', value: params[:q] %>
-              <%= form.submit 'Search' %>
-            <% end %>
-            <li class="active nav-item"><a href="/simple_pages/index">Home</a></li>
-            <li class="nav-item"><a href="/simple_pages/about">About</a></li>
-            <li class="nav-item"><a href="/simple_pages/contact">Contact</a></li>
-            <li class="nav-item"><a href="/products">Products</a></li>
-            <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to('Login', new_user_session_path, class: "nav-link") %>
-            </li>
-            <li class="nav-item">
-              <%= link_to('Sign Up', href="/sign_up", class: "nav-link") %>
-            </li>
-            <% end %>
-            </li>
-          </ul>
-        </div> <!-- nav -->
-      </div> <!-- end nav container-->
-  </nav> <!-- end navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">DCP</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item"><a class="nav-link" href="/simple_pages/index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/simple_pages/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/simple_pages/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Sign Up', href="/sign_up", class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= form_with(url: products_path, method: 'get', local: true, class:"form-inline my-2 my-lg-0") do |form| %>
+            <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control mr-sm-2 nav-search" %>
+            <%= form.submit 'Search', class:"btn btn-sm btn-outline-secondary my-2 my-sm-0 nav-search" %>
+          <% end %>
+        </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 

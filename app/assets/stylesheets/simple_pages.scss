@@ -18,18 +18,21 @@ h1{
 }
 //why do i need both of these in order for it to work?
 .nav-item{
-  display: inline-block;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  transition: color 600ms;
+  -webkit-transition: 600ms;
 }
 .navbar-right{
   display: inline-block;
 }
 
-.nav li a{
+a{
   transition: color 600ms;
   -webkit-transition: 600ms;
-  padding-right: 30px;
-  padding-left: 30px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: pink;
+}
+.nav-search{
+  display: inline-flex;
+  padding: 0px;
 }
