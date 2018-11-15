@@ -74,3 +74,7 @@ gem 'ratyrate'
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
 end
+
+group :development, :test do
+  gem 'rails-controller-testing'
+end
