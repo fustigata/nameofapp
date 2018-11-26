@@ -84,3 +84,5 @@ group :development, :test do
 end
 
 gem 'stripe'
+
+gem 'byebug'

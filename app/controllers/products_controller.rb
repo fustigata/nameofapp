@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
       @products = Product.search(search_term)
     else
       @products = Product.all
+      logger.debug "Showing all products: #{@products.to_a}"
     end
   end
 
