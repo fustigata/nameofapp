@@ -86,3 +86,5 @@ end
 gem 'stripe'
 
 gem 'byebug'
+
+gem "brakeman"
