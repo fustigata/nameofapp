@@ -1,7 +1,9 @@
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-  <h1 class="product_link"><%= link_to product.name, product %></h1>
-  <%= image_tag(product.image_url, class: "product-img") %>
-  <p><%= product.description %></p>
-  <strong>$ <%= number_with_precision( product.price / 100, precision: 2 ) %></strong>
-  <p><%= product.highest_rating_comment&.body %></p>
+  <% cache @products do %>
+    <h1 class="product_link"><%= link_to product.name, product %></h1>
+    <%= image_tag(product.image_url, class: "product-img") %>
+    <p><%= product.description %></p>
+    <strong>$ <%= number_with_precision( product.price / 100, precision: 2 ) %></strong>
+    <p><%= product.highest_rating_comment&.body %></p>
+  <% end %>
 </div><!-- /col -->

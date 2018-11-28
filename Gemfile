@@ -88,3 +88,5 @@ gem 'stripe'
 gem 'byebug'
 
 gem "brakeman"
+
+gem 'dalli'

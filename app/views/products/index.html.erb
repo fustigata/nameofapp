@@ -5,7 +5,9 @@
 <div class="container-fluid">
   <div class="row">
     <% @products.each do |product| %>
-      <%= render @products %>
+      <% cache @products do %>
+        <%= render @products %>
+      <% end %>
     <% end %>
   </div>
 </div>
