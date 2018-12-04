@@ -3,15 +3,21 @@ require 'rails_helper'
 describe Product do
   let(:product) { Product.create!(name: "Yellow Shirt") }
   let(:user) { FactoryBot.create(:user) }
-  before do
-    product.comments.create!(rating: 1, user: user, body: "Awful shirt!")
-    product.comments.create!(rating: 3, user: user, body: "Ok shirt!")
-    product.comments.create!(rating: 5, user: user, body: "Great shirt!")
+
+  it "should require a body" do
+    expect(product.comments.build(rating: 1, user: user, body: "")).not_to be_valid
   end
-  it "returns the average rating of all comments" do
-    expect(product.average_rating).to eq 3.0
+  it "should require a user" do
+    expect(product.comments.build(rating: 1, body: "nice shirt")).not_to be_valid
   end
-  it "is not valid without a name" do
-    expect(Product.new(description: "Nice bike")).not_to be_valid
+  it "should require a product" do
+    expect(Comment.new(rating: 1, user: user, body: "nice shirt")).not_to be_valid
   end
+  it "should require a rating" do
+    expect(product.comments.build(user: user, body: "nice shirt")).not_to be_valid
+  end
+  it "should require a rating that is an int" do
+    expect(product.comments.build(rating: 1.1, user: user, body: "nice shirt")).not_to be_valid
+  end
+
 end
