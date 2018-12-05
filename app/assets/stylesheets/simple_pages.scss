@@ -12,17 +12,12 @@ h1{
   text-align: center;
   text-decoration: underline;
 }
-.nav a:hover{
-  color: #ff0;
-  text-decoration: none;
-}
+
 //why do i need both of these in order for it to work?
 .nav-item{
   display: inline-flex;
   width: auto;
   height: auto;
-  transition: color 600ms;
-  -webkit-transition: 600ms;
 }
 .navbar-right{
   display: inline-block;
@@ -31,6 +26,10 @@ h1{
 a{
   transition: color 600ms;
   -webkit-transition: 600ms;
+}
+
+a:hover{
+  background-color: grey;
 }
 .nav-search{
   display: inline-flex;
