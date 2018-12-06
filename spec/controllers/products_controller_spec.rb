@@ -33,10 +33,11 @@ describe ProductsController, type: :controller do
 
   #how do i make this work
   describe "EDIT #update" do
-    it "updates an product with valid params" do
-      post :update, params: {id: @product.id, name: "Updated name", price: 1500}
-      product.reload
-      expect(product.name).to eq("Updated name")
+    it 'updates product' do
+      article_params = FactoryBot.attributes_for(:product)
+      expect{ patch :update, params: {id: @product.id, product: article_params }
+      }.to change(Product,:count).by(0)
+      expect(flash[:notice]).to eq 'Product was successfully updated.'
     end
   end
 end
