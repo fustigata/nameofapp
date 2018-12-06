@@ -26,4 +26,13 @@ describe ProductsController, type: :controller do
       expect(assigns(:product).destroyed?).to be true
     end
   end
+
+  #how do i make this work?
+  describe "EDIT #update" do
+    it "updates an product with valid params" do
+      post :update, params: {id: product.id, name: "Updated name", price: 1500}
+      product.reload
+      expect(product.name).to eq("Updated name")
+    end
+  end
 end
