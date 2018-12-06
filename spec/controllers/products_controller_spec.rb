@@ -9,4 +9,21 @@ describe ProductsController, type: :controller do
       expect(assigns(:product)).to eq product
     end
   end
+
+  describe "GET #new" do
+    it "assigns a new product as @product" do
+      get :new, params: { id: product.id }
+      expect(assigns(:product)).to be_a_new(Product)
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    before :each do
+      delete :destroy, params: { id: product.id }
+    end
+
+    it 'destroys product' do
+      expect(assigns(:product).destroyed?).to be true
+    end
+  end
 end
