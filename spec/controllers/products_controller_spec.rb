@@ -31,7 +31,6 @@ describe ProductsController, type: :controller do
     end
   end
 
-  #how do i make this work
   describe "EDIT #update" do
     it 'updates product' do
       article_params = FactoryBot.attributes_for(:product)
