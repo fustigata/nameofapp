@@ -7,10 +7,19 @@ describe ProductsController, type: :controller do
     @product = FactoryBot.create(:product)
   end
 
+  describe 'GET #index' do
+    it 'shows all products' do
+      get :index
+      expect(response).to render_template('index')
+      expect(response).to be_ok
+    end
+  end
+
   describe 'GET #show' do
     it 'loads correct product details' do
       get :show, params: { id: @product.id }
       expect(assigns(:product)).to eq @product
+      expect(response).to be_ok
     end
   end
 
