@@ -26,7 +26,9 @@ describe ProductsController, type: :controller do
   describe "GET #new" do
     it "assigns a new product as @product" do
       get :new, params: { id: @product.id }
-      expect(assigns(:product)).to be_a_new(Product)
+    end
+    it "needs a name to create a product" do
+      expect(FactoryBot.build(:product, name: "")).not_to be_valid
     end
   end
 
@@ -34,9 +36,11 @@ describe ProductsController, type: :controller do
     before :each do
       delete :destroy, params: { id: @product.id }
     end
-
     it 'destroys product' do
       expect(assigns(:product).destroyed?).to be true
+    end
+    it 'redirects to products page' do
+      expect(response).to redirect_to products_url
     end
   end
 
